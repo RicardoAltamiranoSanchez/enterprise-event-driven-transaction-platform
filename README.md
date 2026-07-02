@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="docs/images/01_login.png" alt="Enterprise Platform Logo" width="120" style="border-radius: 12px; margin-bottom: 20px;" />
+  <img src="docs/images/01_login.png" alt="Enterprise Event-Driven Transaction Platform" width="120" style="border-radius: 12px; margin-bottom: 20px;" />
 
-  # ⚡ Enterprise Event-Driven Transaction Platform
+  # Enterprise Event-Driven Platform
 
-  **A modern, scalable, and asynchronous Fullstack Platform integrating RPA, AI, and real-time WebSockets.**
+  **A scalable, asynchronous full-stack platform integrating RPA, AI, and real-time WebSockets.**
 
   [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org)
   [![FastAPI](https://img.shields.io/badge/FastAPI-0.103.2-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
@@ -13,104 +13,62 @@
 
   <p align="center">
     <a href="#overview">Overview</a> •
-    <a href="#screenshots">Screenshots</a> •
-    <a href="#features">Features</a> •
     <a href="#architecture">Architecture</a> •
-    <a href="#installation">Installation</a> •
-    <a href="#api-documentation">API</a>
+    <a href="#enterprise-features">Features</a> •
+    <a href="#screenshots">Screenshots</a> •
+    <a href="#quick-start">Quick Start</a> 
   </p>
 </div>
 
 ---
 
-## 📖 Overview
+## Overview
 
-The **Enterprise Event-Driven Transaction Platform** is a robust, production-ready system designed to handle complex business workflows asynchronously. It serves as a centralized hub for executing financial transactions, orchestrating Robotic Process Automation (RPA) bots, and generating AI-powered summaries—all while keeping the user informed in real-time via WebSockets.
-
-This repository demonstrates advanced architectural patterns including **Event-Driven Architecture (EDA)**, **Pub/Sub messaging**, **background workers**, and **containerized microservices**.
+The Enterprise Event-Driven Platform is a production-ready system designed to handle complex business workflows asynchronously. It serves as a centralized hub for executing financial transactions, orchestrating Robotic Process Automation (RPA) bots, and generating AI-powered summaries. Leveraging a Pub/Sub message broker and background workers, it completely decouples heavy processing from the main API lifecycle while keeping clients informed via real-time WebSockets.
 
 ---
 
-## 📸 Screenshots
+## Why this project?
 
-Here is a visual overview of the modern, enterprise-grade React frontend. The UI was designed with TailwindCSS, utilizing a professional palette, glassmorphism, and responsive layouts.
-
-<table align="center" width="100%">
-  <tr>
-    <td width="50%" align="center">
-      <b>Login & Authentication</b><br/>
-      <img src="docs/images/01_login.png" alt="Login" width="100%"/>
-      <br/><em>Secure access control</em>
-    </td>
-    <td width="50%" align="center">
-      <b>Real-Time Dashboard</b><br/>
-      <img src="docs/images/02_dashboard.png" alt="Dashboard" width="100%"/>
-      <br/><em>Metrics and live transaction feed</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <b>Operation Management</b><br/>
-      <img src="docs/images/03_create_transaction.png" alt="Create Transaction" width="100%"/>
-      <br/><em>Form to trigger async background tasks</em>
-    </td>
-    <td width="50%" align="center">
-      <b>AI Integrations</b><br/>
-      <img src="docs/images/04_ai_assistant.png" alt="AI Assistant" width="100%"/>
-      <br/><em>OpenAI document summarization</em>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <b>RPA Bot Control</b><br/>
-      <img src="docs/images/05_rpa_automation.png" alt="RPA Bot" width="100%"/>
-      <br/><em>Trigger Playwright bots with live logs</em>
-    </td>
-    <td width="50%" align="center">
-      <b>System Monitor</b><br/>
-      <img src="docs/images/06_websocket_monitor.png" alt="WS Monitor" width="100%"/>
-      <br/><em>Live WebSocket event stream</em>
-    </td>
-  </tr>
-</table>
+Modern web applications often struggle with long-running tasks like web scraping, AI processing, or heavy database operations, which block the main thread and degrade user experience. This project solves that problem by implementing an Event-Driven Architecture (EDA). By utilizing Redis for task queuing and Pub/Sub broadcasting, the system delegates blocking operations to dedicated background workers, ensuring the API remains highly responsive while pushing state updates directly to the frontend instantly.
 
 ---
 
-## ✨ Features
+## Enterprise Features
 
-- **🎨 Modern Dashboard**: A sleek, responsive SPA (Single Page Application) built with React and TailwindCSS for real-time transaction monitoring.
-- **🔐 Robust Security**: JWT-based Authentication and Authorization securing all private endpoints.
-- **⚡ Asynchronous Processing**: Offloads heavy tasks to background Python workers using Redis queues (Celery/RQ style).
-- **🤖 Intelligent RPA Integration**: Dedicated Playwright-based bot service for automated web scraping and data extraction.
-- **🧠 AI Summarization**: Built-in OpenAI (GPT-3.5/4) integration to generate intelligent contextual summaries of processed data.
-- **📡 Real-Time WebSockets**: Instant UI updates reflecting transaction state changes (Pending -> Processed) without page reloads.
-- **📝 Comprehensive Logging**: Custom Python decorators for exhaustive execution logging and tracing across endpoints.
+### 🔐 Security
+* **JWT Authentication:** Secure access control for all private endpoints.
+* **Role-based Authorization:** Granular endpoint protection.
+* **Environment Isolation:** Sensitive keys and variables managed securely.
+
+### ⚙️ Backend
+* **FastAPI:** High-performance, async RESTful API.
+* **Asynchronous Jobs:** Heavy computations offloaded to background Python workers.
+* **Task Queues:** Redis-backed processing queues.
+
+### 📡 Real-Time
+* **WebSockets:** Live, bi-directional communication channel.
+* **Live Dashboard:** Instant UI updates without polling or page reloads.
+* **Event Stream:** Terminal-like event monitoring directly in the browser.
+
+### 🤖 Automation
+* **AI Integration:** Built-in OpenAI (GPT-3.5/4) connectivity for text summarization.
+* **RPA:** Isolated Playwright service for automated data extraction and web scraping.
+
+### 🗄️ Infrastructure
+* **Docker Orchestration:** Fully containerized ecosystem (6 microservices).
+* **PostgreSQL:** ACID-compliant relational data persistence.
+* **Redis:** Dual-purpose message broker and caching layer.
+* **Make/Powershell Automation:** Streamlined developer experience for environment teardown and build.
 
 ---
 
-## 🏗 Architecture
+## Tech Stack
 
-The system is designed with an event-driven mindset to ensure maximum scalability, high availability, and immediate responsiveness. It decouples heavy processing from the main request lifecycle.
-
-### System Components
-
-The infrastructure consists of 6 core microservices orchestrated via Docker Compose:
-
-1. **Backend API (FastAPI)**: The central RESTful API. Manages business logic, JWT authentication, and acts as the orchestrator.
-2. **Frontend UI (React + Vite + Nginx)**: The client-facing application. Consumes the REST API and maintains a persistent WebSocket connection.
-3. **RPA Engine (Python + Playwright)**: An isolated microservice dedicated to browser automation and content extraction.
-4. **Background Worker (Python)**: A daemon process that consumes tasks from the Redis queue to handle heavy computational or network-bound jobs.
-5. **Message Broker (Redis)**: Serves a dual purpose: task queue management for the workers and a Pub/Sub channel for live WebSocket events.
-6. **Relational Database (PostgreSQL)**: Ensures ACID-compliant persistence for users, transactions, and system logs.
-
----
-
-## 💻 Technology Stack
-
-| Layer | Technologies |
+| Layer | Primary Technologies |
 | :--- | :--- |
 | **Frontend** | ReactJS, Vite, TailwindCSS, TypeScript, Nginx |
-| **Backend** | Python, FastAPI, SQLAlchemy, Pydantic, JWT |
+| **Backend API** | Python, FastAPI, SQLAlchemy, Pydantic, JWT |
 | **Database** | PostgreSQL |
 | **Broker / Cache** | Redis |
 | **Automation (RPA)** | Playwright (Python) |
@@ -119,34 +77,123 @@ The infrastructure consists of 6 core microservices orchestrated via Docker Comp
 
 ---
 
-## 🚀 Installation & Deployment
+## Architecture
 
-### Prerequisites
-- [Docker](https://docs.docker.com/get-docker/) and Docker Compose installed.
-- Git.
+```mermaid
+graph TD
+    Client(Frontend UI) -->|HTTP Requests| API(FastAPI Gateway)
+    Client -->|WebSocket| API
+    
+    API -->|Auth & Queries| DB[(PostgreSQL)]
+    API -->|Enqueue Task| Broker((Redis Pub/Sub & Queue))
+    
+    Broker -->|Consume Task| Worker(Background Worker)
+    Broker -->|Trigger RPA| RPA(Playwright RPA Bot)
+    
+    Worker -->|AI Processing| OpenAI[OpenAI API]
+    Worker -->|Write Results| DB
+    Worker -->|Publish Event| Broker
+    
+    RPA -->|Scrape Web| Internet((External Web))
+    RPA -->|Publish Results| Broker
+    
+    Broker -.->|Broadcast Event| API
+    API -.->|Push Notification| Client
+```
 
-### Environment Variables
-Copy the `.env.example` file to create your local `.env` configuration.
+---
 
+## Screenshots
+
+### Real-Time Dashboard
+![Dashboard](docs/images/02_dashboard.png)
+
+### Operation Management
+![Create Transaction](docs/images/03_create_transaction.png)
+
+### RPA Bot Control
+![RPA Automation](docs/images/05_rpa_automation.png)
+
+### AI Integrations
+![AI Assistant](docs/images/04_ai_assistant.png)
+
+### System Monitor
+![WebSocket Monitor](docs/images/06_websocket_monitor.png)
+
+---
+
+## Quick Start
+
+### 1. Clone
+```bash
+git clone git@github.com:RicardoAltamiranoSanchez/enterprise-event-driven-transaction-platform.git
+cd enterprise-event-driven-transaction-platform
+```
+
+### 2. Environment Variables
 ```bash
 cp .env.example .env
 ```
+*(OpenAI keys are optional; the system will mock AI responses if omitted).*
 
-*(Note: The `OPENAI_API_KEY` is optional. If not provided, the system will gracefully fallback to a simulation mode).*
-
-### Running with Docker
-
-The project includes convenience scripts for cross-platform deployment.
-
-**Linux / macOS** (Using `make`):
+### 3. Run (Docker)
 ```bash
-make build   # Build Docker images
-make up      # Start all services in detached mode
-make logs    # Tail real-time logs
-make down    # Stop all services
+docker compose up --build -d
 ```
 
-**Windows** (Using PowerShell):
+### 4. Access
+* **Frontend**: `http://localhost:3000` (User: `admin` | Pass: `password123`)
+* **Swagger API**: `http://localhost:8000/docs`
+
+---
+
+## Project Structure
+
+```text
+enterprise-transaction-platform/
+├── backend/            # FastAPI REST API and Core Logic
+│   ├── app/            # Routes, Models, Schemas, and Services
+│   └── workers/        # Redis consumers and async jobs
+├── frontend/           # React SPA (Vite + TailwindCSS)
+├── rpa/                # Playwright automation microservice
+├── docs/               # Architecture diagrams and assets
+├── postman/            # API collection for local testing
+├── docker-compose.yml  # Multi-container orchestration
+└── Makefile            # Dev environment automation
+```
+
+---
+
+## API Overview
+
+The platform exposes a standard REST API documented via OpenAPI 3.0.
+
+* `POST /auth/login` - Authenticate and retrieve JWT token.
+* `GET /transactions` - Fetch paginated historical transactions.
+* `POST /transactions/async-process` - Enqueue a new transaction for background processing.
+* `POST /assistant/summarize` - Enqueue text for AI summarization.
+* `POST /rpa/trigger` - Trigger the Playwright bot payload.
+* `WS /transactions/stream` - Persistent WebSocket connection for live platform events.
+
+---
+
+## Development
+
+### Environment Management
+The project relies strictly on Docker for local development. Make sure your Docker daemon is running.
+
+### Useful Commands
+We provide a `Makefile` (Linux/Mac) and `manage.ps1` (Windows) for ease of use.
+
+**Linux / Mac:**
+```bash
+make build   # Rebuild all containers
+make up      # Start the cluster in detached mode
+make logs    # Tail all container logs
+make down    # Tear down containers and networks
+```
+
+**Windows:**
 ```powershell
 .\manage.ps1 build
 .\manage.ps1 up
@@ -154,68 +201,30 @@ make down    # Stop all services
 .\manage.ps1 down
 ```
 
-**Standard Docker**:
-```bash
-docker compose up --build -d
-```
+---
 
-### Accessing the System
-- **Frontend Dashboard**: [http://localhost:3000](http://localhost:3000)
-- **Backend API (Swagger UI)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+## Roadmap
+
+- [x] JWT Authentication
+- [x] Docker Orchestration
+- [x] WebSocket Event Streaming
+- [x] PostgreSQL Integration
+- [x] Redis Pub/Sub & Task Queues
+- [x] Playwright RPA Microservice
+- [ ] Comprehensive PyTest Suite
+- [ ] GraphQL Endpoint Layer
+- [ ] Kubernetes (K8s) Deployment Manifests
+- [ ] GitHub Actions CI/CD Pipeline
+- [ ] OpenTelemetry Tracing
 
 ---
 
-## 📚 Documentation
+## Contributing
 
-### API Documentation
-The API adheres to the OpenAPI 3.0 specification. 
-- You can explore the interactive Swagger UI at `/docs` once the server is running.
-- The raw OpenAPI contract is available in `docs/api/openapi.yaml`.
-
-### Authentication
-The platform uses JWT (JSON Web Tokens). 
-Default Admin Credentials:
-- **Username**: `admin`
-- **Password**: `password123`
-
-*(Please change these in production).*
-
-### Postman Collection
-A complete Postman collection is available to test all endpoints. Import `postman/TransactionPlatform.postman_collection.json` into your workspace.
-
-### Real-Time Events (WebSockets)
-The frontend connects to `ws://localhost:8000/transactions/stream` to receive live JSON payloads whenever a background worker completes a transaction.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Ensure all tests pass before submitting.
 
 ---
 
-## 📂 Folder Structure
+## License
 
-```text
-enterprise-transaction-platform/
-├── backend/            # FastAPI REST API and core business logic
-├── frontend/           # ReactJS Single Page Application
-├── rpa/                # Playwright automation scripts and endpoints
-├── worker/             # Background task consumer scripts
-├── docs/               # System documentation, API contracts, diagrams, and images
-├── postman/            # API collections for testing
-├── .github/            # GitHub Actions and templates
-├── docker-compose.yml  # Microservices orchestration
-└── Makefile            # Task automation commands
-```
-
----
-
-## 🔮 Future Improvements (Roadmap)
-
-- [ ] Implement Kubernetes (K8s) manifests for cloud-native deployment.
-- [ ] Add comprehensive Unit and Integration testing suites (pytest, Jest).
-- [ ] Introduce GraphQL endpoints for flexible frontend data fetching.
-- [ ] Setup CI/CD pipelines via GitHub Actions.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-#   e n t e r p r i s e - e v e n t - d r i v e n - t r a n s a c t i o n - p l a t f o r m  
- 
+This project is licensed under the MIT License. See the `LICENSE` file for details.
