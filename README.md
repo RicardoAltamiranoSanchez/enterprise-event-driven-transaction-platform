@@ -150,6 +150,11 @@ make up      # Start all services in detached mode
 .\manage.ps1 up
 ```
 
+**Standard Docker** (Without helper scripts):
+```bash
+docker compose up --build -d
+```
+
 ### 4. Access
 * **Frontend**: `http://localhost:3000` (User: `admin` | Pass: `password123`)
 * **Swagger API**: `http://localhost:8000/docs`
