@@ -156,8 +156,15 @@ docker compose up --build -d
 ```
 
 ### 4. Access
-* **Frontend**: `http://localhost:3000` (User: `admin` | Pass: `password123`)
-* **Swagger API**: `http://localhost:8000/docs`
+
+After starting the containers, the platform is available at:
+
+- **Frontend Dashboard**: [http://localhost:3000](http://localhost:3000)
+- **Backend API (Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+> **Default Admin Credentials:**
+> - **Username:** `admin`
+> - **Password:** `password123`
 
 ---
 
