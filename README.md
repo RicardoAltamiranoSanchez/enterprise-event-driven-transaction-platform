@@ -136,9 +136,18 @@ cp .env.example .env
 ```
 *(OpenAI keys are optional; the system will mock AI responses if omitted).*
 
-### 3. Run (Docker)
+### 3. Run the Platform
+
+**Linux / macOS** (Using `make`):
 ```bash
-docker compose up --build -d
+make build   # Build Docker images
+make up      # Start all services in detached mode
+```
+
+**Windows** (Using PowerShell):
+```powershell
+.\manage.ps1 build
+.\manage.ps1 up
 ```
 
 ### 4. Access
@@ -156,6 +165,7 @@ enterprise-transaction-platform/
 │   └── workers/        # Redis consumers and async jobs
 ├── frontend/           # React SPA (Vite + TailwindCSS)
 ├── rpa/                # Playwright automation microservice
+├── scripts/            # Helper scripts (seed data, screenshots)
 ├── docs/               # Architecture diagrams and assets
 ├── postman/            # API collection for local testing
 ├── docker-compose.yml  # Multi-container orchestration
